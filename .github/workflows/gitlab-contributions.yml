@@ -13,19 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch GitLab Contributions and Generate Heatmap
+      - name: Fetch GitLab Contributions and Generate Monthly Heatmap
         run: |
           echo "## My GitLab Activity 🚀" > gitlab_activity.md
           echo "" >> gitlab_activity.md
           
-          # Fetch GitLab events and count daily contributions
+          # Fetch GitLab events and count contributions by month
           curl -s --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}" \
           "https://zivgitlab.uni-muenster.de/api/v4/users/fzhang/events" \
-          | jq -r 'map(.created_at | split("T")[0]) | group_by(.) | map({(.[0]): length}) | add' \
+          | jq -r 'map(.created_at | split("T")[0]) | "\(.[0:7])") | group_by(.) | map({(.[0]): length}) | add' \
           > gitlab_contributions.json
 
           # Generate a Markdown table
-          echo "| Date       | Contributions |" >> gitlab_activity.md
+          echo "| Month      | Contributions |" >> gitlab_activity.md
           echo "|------------|--------------|" >> gitlab_activity.md
           jq -r 'to_entries | sort_by(.key) | .[] | "| \(.key) | \(.value) |"' gitlab_contributions.json >> gitlab_activity.md
           
