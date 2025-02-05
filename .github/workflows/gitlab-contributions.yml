@@ -15,7 +15,8 @@ jobs:
 
       - name: Fetch GitLab Contributions and Generate Monthly Heatmap
         run: |
-          echo "## My GitLab Activity 🚀" > gitlab_activity.md
+          echo "### My GitLab " > gitlab_activity.md
+          echo "I work with our university GitLab as well. Check me out 🏫 [here](https://zivgitlab.uni-muenster.de/fzhang) " >> gitlab_activity.md
           echo "" >> gitlab_activity.md
           
           # Fetch GitLab events and count contributions by month
@@ -26,7 +27,7 @@ jobs:
 
           # Generate a Markdown table
           echo "| Month      | Contributions |" >> gitlab_activity.md
-          echo "|------------|--------------|" >> gitlab_activity.md
+          echo "|------------|---------------|" >> gitlab_activity.md
           jq -r 'to_entries | sort_by(.key) | .[] | "| \(.key) | \(.value) |"' gitlab_contributions.json >> gitlab_activity.md
           
           echo -e "\n_Last updated: $(date)_\n" >> gitlab_activity.md
