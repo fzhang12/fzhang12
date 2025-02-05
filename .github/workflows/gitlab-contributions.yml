@@ -21,7 +21,7 @@ jobs:
           # Fetch GitLab events and count contributions by month
           curl -s --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}" \
           "https://zivgitlab.uni-muenster.de/api/v4/users/fzhang/events" \
-          | jq -r 'map(.created_at | split("T")[0]) | "\(.[0:7])") | group_by(.) | map({(.[0]): length}) | add' \
+          | jq -r 'map(.created_at | split("T")[0] | "\(.[0:7])") | group_by(.) | map({(.[0]): length}) | add' \
           > gitlab_contributions.json
 
           # Generate a Markdown table
