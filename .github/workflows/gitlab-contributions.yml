@@ -15,14 +15,12 @@ jobs:
 
       - name: Fetch GitLab Contributions
         run: |
+          echo "## My GitLab Activity 🚀" > gitlab_activity.md
           curl -s --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}" \
           "https://zivgitlab.uni-muenster.de/api/v4/users/fzhang/events" \
-          | jq '.[].action_name' > gitlab_contributions.txt
-
-      - name: Update GitHub Profile README
-        run: |
-          echo "## My GitLab Activity 🚀" > gitlab_activity.md
-          cat gitlab_contributions.txt >> gitlab_activity.md
+          | jq -r '.[] | "- **\(.action_name | ascii_upcase)** in [\(.project_id)](https://zivgitlab.uni-muenster.de/projects/\(.project_id))"' \
+          >> gitlab_activity.md
+          
           echo -e "\n_Last updated: $(date)_\n" >> gitlab_activity.md
           mv gitlab_activity.md README.md
 
