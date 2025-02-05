@@ -1,4 +1,4 @@
-# Hi, I'm Fengjun! 👋
+## Hi, I'm Fengjun! 👋
 
 🎓 I'm a **bioinformatician** specializing in **Genomics, Evolution, and Neutrophil Biology**.  
 I have an academic journey across multiple countries:  
@@ -10,7 +10,7 @@ I have an academic journey across multiple countries:
 
 ---
 
-## 🖥️ My Programming Languages  
+### 🖥️ My Programming Languages  
 💻 I work with a variety of languages for different applications:  
 - 🐚 **Shell Scripting** 
 - 📊 **R**  
@@ -19,7 +19,7 @@ I have an academic journey across multiple countries:
 
 ---
 
-## 🔬 My Research Interests  
+### 🔬 My Research Interests  
 🔍 I’m passionate about:  
 - 🧬 **Genome Evolution**  
 - 🧪 **Alternative Splicing & Functional Genomics**  
@@ -29,7 +29,7 @@ I have an academic journey across multiple countries:
 
 ---
 
-## 📫 Connect with Me  
+### 📫 Connect with Me  
 💡 Want to chat about bioinformatics, genomics, or tech? Find me here:  
 - 🐦 [X, formerly Twitter](https://x.com/fengjun_zhang)
 
