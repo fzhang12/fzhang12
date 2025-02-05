@@ -1,0 +1,35 @@
+name: Sync GitLab Contributions
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  update-gitlab-activity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch GitLab Contributions
+        run: |
+          curl -s --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}" \
+          "https://zivgitlab.uni-muenster.de/api/v4/users/fzhang/events" \
+          | jq '.[].action_name' > gitlab_contributions.txt
+
+      - name: Update GitHub Profile README
+        run: |
+          echo "## My GitLab Activity 🚀" > gitlab_activity.md
+          cat gitlab_contributions.txt >> gitlab_activity.md
+          echo -e "\n_Last updated: $(date)_\n" >> gitlab_activity.md
+          mv gitlab_activity.md README.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "🔄 Update GitLab activity $(date)" || echo "No changes to commit"
+          git push
