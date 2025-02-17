@@ -39,10 +39,10 @@ I work with our university GitLab as well. Check me out 🏫 [here](https://zivg
 
 | Month      | Contributions |
 |------------|---------------|
-| 2024-08 | 1 |
-| 2024-11 | 10 |
+| 2024-11 | 7 |
 | 2024-12 | 1 |
 | 2025-01 | 8 |
+| 2025-02 | 4 |
 
-_Last updated: Mon Feb 10 03:16:00 UTC 2025_
+_Last updated: Mon Feb 17 03:17:17 UTC 2025_
 
