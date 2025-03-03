@@ -39,10 +39,8 @@ I work with our university GitLab as well. Check me out 🏫 [here](https://zivg
 
 | Month      | Contributions |
 |------------|---------------|
-| 2024-11 | 3 |
-| 2024-12 | 1 |
-| 2025-01 | 8 |
-| 2025-02 | 8 |
+| 2025-01 | 1 |
+| 2025-02 | 19 |
 
-_Last updated: Mon Feb 24 03:19:18 UTC 2025_
+_Last updated: Mon Mar  3 03:21:26 UTC 2025_
 
